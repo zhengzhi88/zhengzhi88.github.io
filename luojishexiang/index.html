@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="罗技摄像头驱动下载中心 - 提供官方高清摄像头驱动、Logitech Webcam Software、G Hub及通用驱动安装指南，解决无法识别、黑屏、模糊等问题。">
+    <meta name="keywords" content="罗技摄像头驱动,Logitech驱动下载,罗技高清摄像头驱动,罗技通用驱动,罗技G摄像头驱动">
+    <title>罗技摄像头驱动-官方驱动下载与安装指南</title>
+    <style>
+        :root {
+            --primary-color: #00b67a; /* Logitech Green */
+            --primary-hover: #009e63;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f5f7fa;
+            --bg-card: #ffffff;
+            --border-color: #e1e4e8;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-hover);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00b67a 0%, #009e63 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            display: inline-flex;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 50px 0 0 50px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 32px;
+            padding: 40px 0;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 48px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Driver Cards */
+        .driver-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .driver-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .driver-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #e6f7f0;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .btn-download {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .guide-list li {
+            margin-bottom: 12px;
+        }
+
+        .guide-list a {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .guide-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .guide-list a::before {
+            content: '→';
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .status-box {
+            background-color: #f0f9f4;
+            border: 1px solid #d9f7be;
+            color: #135200;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Troubleshooting Table */
+        .troubleshoot-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .troubleshoot-table th, .troubleshoot-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .troubleshoot-table th {
+            background-color: #fafafa;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+                padding: 10px;
+                border-radius: 12px;
+            }
+
+            .search-box input {
+                border-radius: 8px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .search-box button {
+                width: 100%;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">
+            <span>Logitech</span>驱动之家
+        </a>
+        <nav class="nav-links">
+            <a href="#">驱动下载</a>
+            <a href="#">常见问题</a>
+            <a href="#">安装指南</a>
+            <a href="#">联系支持</a>
+        </nav>
+        <a href="#" class="nav-cta">检测设备</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>罗技摄像头驱动</h1>
+        <p>获取官方认证的罗技高清摄像头驱动程序，确保视频通话、直播和录制的清晰画质与稳定性能。</p>
+        <form class="search-box" onsubmit="event.preventDefault(); alert('请访问罗技官方网站进行型号查询。');">
+            <input type="text" placeholder="输入摄像头型号（如：C920）...">
+            <button type="submit">搜索驱动</button>
+        </form>
+    </div>
+</section>
+
+<main class="container main-layout">
+    <!-- Left Content -->
+    <div class="content-area">
+        
+        <!-- Recommended Drivers -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">热门驱动下载</h2>
+                <a href="#" class="view-all">查看全部型号</a>
+            </div>
+            <div class="driver-grid">
+                <!-- Card 1 -->
+                <article class="driver-card">
+                    <div class="card-icon">📷</div>
+                    <h3 class="card-title">C920 / C930S</h3>
+                    <p class="card-desc">1080p 全高清摄像头驱动，支持Logitech Capture软件及自动对焦功能。</p>
+                    <div class="card-meta">
+                        <span>Windows 10/11</span>
+                        <span>32/64 bit</span>
+                    </div>
+                    <a href="#" class="btn-download">下载驱动</a>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="driver-card">
+                    <div class="card-icon">📹</div>
+                    <h3 class="card-title">Brio 4K Ultra HD</h3>
+                    <p class="card-desc">4K超高清驱动，支持HDR和Light Correction智能光线校正。</p>
+                    <div class="card-meta">
+                        <span>Windows 10/11</span>
+                        <span>32/64 bit</span>
+                    </div>
+                    <a href="#" class="btn-download">下载驱动</a>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="driver-card">
+                    <div class="card-icon">🖥️</div>
+                    <h3 class="card-title">C920s Pro HD</h3>
+                    <p class="card-desc">C920的隐私版本，配备人像模式驱动，适合商务会议。</p>
+                    <div class="card-meta">
+                        <span>Windows 10/11</span>
+                        <span>32/64 bit</span>
+                    </div>
+                    <a href="#" class="btn-download">下载驱动</a>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="driver-card">
+                    <div class="card-icon">🎮</div>
+                    <h3 class="card-title">C922 Stream Key</h3>
+                    <p class="card-desc">专为游戏直播设计的驱动，支持快速切换帧率和分辨率。</p>
+                    <div class="card-meta">
+                        <span>Windows 10/11</span>
+                        <span>32/64 bit</span>
+                    </div>
+                    <a href="#" class="btn-download">下载驱动</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">驱动安装与故障排查</h2>
+            </div>
+            <table class="troubleshoot-table">
+                <thead>
+                    <tr>
+                        <th>问题现象</th>
+                        <th>解决方法</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>设备管理器中显示“未知设备”</td>
+                        <td>尝试卸载现有驱动，重启电脑，使用罗技官网提供的通用驱动或重新插入USB接口。</td>
+                    </tr>
+                    <tr>
+                        <td>摄像头画面模糊或有噪点</td>
+                        <td>确保驱动已更新至最新版本。在设置中检查分辨率（如1080p/60fps）是否被限制。</td>
+                    </tr>
+                    <tr>
+                        <td>视频通话画面黑屏</td>
+                        <td>检查隐私设置（如Windows隐私中心）是否允许摄像头访问。尝试更换视频通话软件（如Zoom/Teams）。</td>
+                    </tr>
+                    <tr>
+                        <td>驱动安装失败提示代码</td>
+                        <td>关闭杀毒软件，以管理员身份运行安装程序。如果是Windows 11，请确保开启了虚拟化支持。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">常见问题 (FAQ)</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">为什么罗技官方软件无法识别我的摄像头？</div>
+                    <div class="faq-answer">这通常是因为设备未正确安装驱动或被其他软件占用。请访问本站下载对应型号的驱动，或检查Logitech Capture软件的设备设置。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">下载的驱动是64位还是32位？</div>
+                    <div class="faq-answer">罗技的大部分现代摄像头驱动均支持Windows 10和11的64位系统。如果您的电脑是32位系统，请下载对应的32位版本。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">罗技摄像头需要安装G Hub吗？</div>
+                    <div class="faq-answer">对于C920、C930等经典型号，安装Logitech Capture软件即可；对于G系列游戏摄像头，建议安装G Hub以获得最佳性能。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何恢复出厂设置？</div>
+                    <div class="faq-answer">在设备管理器中找到摄像头设备，右键选择“卸载设备”，勾选“删除此设备的驱动程序软件”，重启电脑后重新插拔摄像头。</div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-card">
+            <h3 class="sidebar-title">设备状态检测</h3>
+            <div class="status-box">
+                <p><strong>当前检测：</strong> 未连接设备</p>
+                <p style="margin-top:8px; font-size:12px;">请在设备管理器中查看您的罗技摄像头型号，以获取准确的驱动下载链接。</p>
+            </div>
+        </div>
+
+        <div class="sidebar-card">
+            <h3 class="sidebar-title">安装指南</h3>
+            <ul class="guide-list">
+                <li><a href="#">通用驱动安装教程</a></li>
+                <li><a href="#">Logitech Capture 配置指南</a></li>
+                <li><a href="#">解决驱动冲突问题</a></li>
+                <li><a href="#">隐私遮挡功能设置</a></li>
+                <li><a href="#">USB供电不足怎么办？</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-card">
+            <h3 class="sidebar-title">相关工具</h3>
+            <ul class="guide-list">
+                <li><a href="#">Windows Camera App</a></li>
+                <li><a href="#">OBS Studio 配置</a></li>
+                <li><a href="#">TeamViewer 远程支持</a></li>
+            </ul>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于驱动</h4>
+                <p style="font-size: 14px; line-height: 1.6;">我们提供安全、稳定的罗技摄像头驱动下载服务，帮助用户解决设备识别、画面质量及兼容性问题。</p>
+            </div>
+            <div class="footer-col">
+                <h4>热门系列</h4>
+                <ul>
+                    <li><a href="#">C920 驱动</a></li>
+                    <li><a href="#">Brio 4K 驱动</a></li>
+                    <li><a href="#">C930S 驱动</a></li>
+                    <li><a href="#">C922 驱动</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>技术支持</h4>
+                <ul>
+                    <li><a href="#">提交工单</a></li>
+                    <li><a href="#">用户社区</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Logitech Driver Center. All rights reserved. 本站为用户提供技术支持服务，非罗技官方网站。</p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
