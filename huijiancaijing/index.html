@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="会见财经界 - 深度财经人物访谈与行业观察平台，聚焦商业领袖、经济学家与投资风向，提供权威财经资讯与商业智慧。">
+    <meta name="keywords" content="会见财经界,财经人物访谈,商业领袖,投资风向,财经资讯,商业智慧">
+    <title>会见财经界-深度财经人物访谈与行业观察平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a2a3a;
+            --accent-color: #c49a6c;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* Header */
+        header {
+            height: var(--header-height);
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-subscribe {
+            padding: 8px 20px;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-white);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .hero-cta:hover {
+            background-color: #b08d5a;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 4px solid rgba(255,255,255,0.1);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Section Title */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Interviews Section */
+        .interviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .interview-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .interview-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .interview-img {
+            height: 200px;
+            width: 100%;
+            background-color: #ddd;
+        }
+
+        .interview-content {
+            padding: 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(196, 154, 108, 0.1);
+            color: #8a6d3b;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .interview-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .interview-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .interview-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        /* Latest News */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .news-item:hover {
+            background-color: var(--bg-light);
+        }
+
+        .news-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .news-date .day {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .news-date .month {
+            font-size: 12px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+        }
+
+        .news-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .news-content p {
+            color: var(--text-gray);
+            font-size: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            max-width: 300px;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .interviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Simplified for mobile demo */
+            }
+            
+            .header-actions {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .interviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">会见<span>财经界</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">人物专访</a></li>
+                    <li><a href="#">深度观察</a></li>
+                    <li><a href="#">产业趋势</a></li>
+                    <li><a href="#">投资视野</a></li>
+                    <li><a href="#">专栏观点</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-subscribe">订阅周刊</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>洞察商业本质，听见时代强音</h1>
+                    <p>会见财经界，致力于连接全球商业领袖、经济学家与投资者。通过深度访谈与独家分析，为您呈现最具价值的商业智慧与前瞻趋势。</p>
+                    <a href="#" class="hero-cta">阅读最新访谈</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/finance_hero/600/400" alt="财经会议场景" width="600" height="400">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section-padding features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎙️</div>
+                        <h3>深度人物访谈</h3>
+                        <p>独家对话商界领袖，挖掘决策背后的逻辑与思考。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>产业趋势分析</h3>
+                        <p>剖析宏观经济走向，解读新兴行业的发展机遇。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>投资决策参考</h3>
+                        <p>提供专业的投资视角与资产配置建议。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Interviews -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>近期专访</h2>
+                    <p>聆听行业先行者的真知灼见，把握商业发展的脉搏。</p>
+                </div>
+                <div class="interviews-grid">
+                    <article class="interview-card">
+                        <div class="interview-img">
+                            <img src="https://picsum.photos/seed/ceo1/400/250" alt="企业高管访谈" loading="lazy">
+                        </div>
+                        <div class="interview-content">
+                            <span class="tag">科技创新</span>
+                            <h3>探索人工智能时代的产业变革与机遇</h3>
+                            <p style="color:var(--text-gray); font-size:14px; margin-top:10px;">专访某知名科技公司创始人，探讨大模型技术如何重塑传统行业生态。</p>
+                            <div class="interview-meta">
+                                <span>2023-10-24</span>
+                                <div class="interview-author">
+                                    <img src="https://picsum.photos/seed/author1/50/50" class="author-avatar" alt="作者">
+                                    <span>张伟</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="interview-card">
+                        <div class="interview-img">
+                            <img src="https://picsum.photos/seed/ceo2/400/250" alt="金融领袖访谈" loading="lazy">
+                        </div>
+                        <div class="interview-content">
+                            <span class="tag">金融资本</span>
+                            <h3>全球资本市场波动下的资产配置策略</h3>
+                            <p style="color:var(--text-gray); font-size:14px; margin-top:10px;">对话资深投资银行家，解析后疫情时代的财富管理新方向。</p>
+                            <div class="interview-meta">
+                                <span>2023-10-22</span>
+                                <div class="interview-author">
+                                    <img src="https://picsum.photos/seed/author2/50/50" class="author-avatar" alt="作者">
+                                    <span>李敏</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="interview-card">
+                        <div class="interview-img">
+                            <img src="https://picsum.photos/seed/ceo3/400/250" alt="ESG访谈" loading="lazy">
+                        </div>
+                        <div class="interview-content">
+                            <span class="tag">可持续发展</span>
+                            <h3>ESG理念在企业社会责任中的实践路径</h3>
+                            <p style="color:var(--text-gray); font-size:14px; margin-top:10px;">专访多家上市企业高管，探讨绿色转型对企业长期价值的影响。</p>
+                            <div class="interview-meta">
+                                <span>2023-10-20</span>
+                                <div class="interview-author">
+                                    <img src="https://picsum.photos/seed/author3/50/50" class="author-avatar" alt="作者">
+                                    <span>王强</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote -->
+        <section class="quote-section">
+            <div class="container">
+                <p class="quote-text">“在财经的世界里，信息即权力，洞察即财富。会见财经界，就是为您打开这扇通往商业核心的大门。”</p>
+                <p class="quote-author">—— 会见财经界 创始人</p>
+            </div>
+        </section>
+
+        <!-- Latest News -->
+        <section class="section-padding" style="background-color: var(--bg-light);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>财经快讯</h2>
+                    <p>快速了解全球经济动态与政策风向。</p>
+                </div>
+                <div class="news-list">
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">24</span>
+                            <span class="month">Oct</span>
+                        </div>
+                        <div class="news-content">
+                            <h3>美联储最新利率决议释放哪些信号？</h3>
+                            <p>本次会议决定维持基准利率不变，但暗示可能在下个季度放缓加息步伐，市场反应积极。</p>
+                        </div>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">22</span>
+                            <span class="month">Oct</span>
+                        </div>
+                        <div class="news-content">
+                            <h3>新能源汽车出口数据创历史新高</h3>
+                            <p>据最新统计，今年前三季度中国新能源汽车出口量同比增长超过150%，领跑全球市场。</p>
+                        </div>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">20</span>
+                            <span class="month">Oct</span>
+                        </div>
+                        <div class="news-content">
+                            <h3>数字经济成为稳增长新引擎</h3>
+                            <p>专家指出，随着数字基础设施的不断完善，数字技术与实体经济的融合将进一步深化。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>会见财经界</h3>
+                    <p>致力于提供最专业、最客观的财经视角。我们相信，深度的内容是连接智慧与财富的桥梁。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">团队介绍</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容栏目</h4>
+                    <ul>
+                        <li><a href="#">人物专访</a></li>
+                        <li><a href="#">深度观察</a></li>
+                        <li><a href="#">数据报告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="#">合作投稿</a></li>
+                        <li><a href="#">广告服务</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 会见财经界. All Rights Reserved. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
