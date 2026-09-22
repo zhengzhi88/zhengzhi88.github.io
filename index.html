@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="vivos16官网 - 探索vivos16系列的极致轻薄设计、IMX766V超级夜景影像与专业人像模式。了解详细参数、配色方案及购买渠道，体验vivo年度旗舰美学。">
+    <meta name="keywords" content="vivos16, vivos16参数, vivos16评测, vivo手机, vivo影像, vivo官方商城">
+    <title>vivos16 - vivo年度旗舰美学与影像旗舰评测</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4d4dff;
+            --secondary-color: #f5f5f7;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-pink: #ff4d94;
+            --bg-color: #ffffff;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+            --header-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: var(--container-width);
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3a3aff;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: var(--header-height);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 80% 20%, rgba(77, 77, 255, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(255, 77, 148, 0.05) 0%, transparent 40%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: var(--container-width);
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--text-main);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--text-main);
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-main);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-mockup {
+            width: 320px;
+            height: 650px;
+            background: #000;
+            border-radius: 45px;
+            border: 8px solid #333;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #2a2a2a 0%, #000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        .screen-content {
+            text-align: center;
+        }
+
+        .screen-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .screen-text {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background-color: var(--bg-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(77, 77, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Design Section */
+        .design {
+            padding: 100px 20px;
+            background-color: var(--secondary-color);
+        }
+
+        .design-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .design-image {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .design-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .design-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .design-content p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .specs-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .spec-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .spec-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Specs Comparison Table */
+        .specs-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .specs-table-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: var(--card-shadow);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table th, .specs-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .specs-table th {
+            background-color: var(--secondary-color);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .specs-table td {
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f5f5f7;
+            padding: 60px 20px 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 15px;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .design-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 15px auto;
+            }
+
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+            
+            .nav-container {
+                justify-content: center;
+            }
+            
+            .logo {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
+            vivo<span>Official</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#features">核心功能</a></li>
+                <li><a href="#design">设计美学</a></li>
+                <li><a href="#specs">详细参数</a></li>
+                <li><a href="#store">购买渠道</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="cta-button">立即购买</a>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>轻薄美学，<br><span>vivos16</span> 影像旗舰</h1>
+                <p>全新vivo S16系列，搭载IMX766V旗舰传感器，以"如见"人像引擎重新定义手机摄影。轻薄机身与专业级影像系统的完美融合。</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">查看详情</button>
+                    <button class="btn btn-outline">预约体验</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="screen-content">
+                            <div class="screen-icon">✨</div>
+                            <div class="screen-text">如见·人像<br>大师级美颜</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>核心亮点</h2>
+            <p>重新定义人像摄影，不止于美</p>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>IMX766V 超清主摄</h3>
+                <p>5000万像素大底传感器，进光量提升40%，夜景拍摄更纯净，色彩还原更真实。</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>如见·人像引擎</h3>
+                <p>AI智能磨皮与美颜算法，保留皮肤纹理细节，让每一张人像照片都自然动人。</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">🔋</div>
+                <h3>4640mAh 超长续航</h3>
+                <p>配合80W闪充，告别电量焦虑。全天候高刷体验，依然持久在线。</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Design Section -->
+    <section id="design" class="design">
+        <div class="design-container">
+            <div class="design-image">
+                <!-- Placeholder for phone design visualization -->
+                <img src="https://picsum.photos/seed/vivos16design/600/700" alt="vivos16 轻薄设计展示">
+            </div>
+            <div class="design-content">
+                <h2>轻薄机身，<br>触手可及的艺术</h2>
+                <p>vivos16采用极窄边框设计，中框与背板一体化成型，手感温润如玉。背部采用微弧工艺，贴合手掌曲线，带来极佳的握持感。</p>
+                <div class="specs-list">
+                    <div class="spec-item">
+                        <h4>机身厚度</h4>
+                        <p>7.36mm 极致轻薄</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>机身重量</h4>
+                        <p>173g 轻盈便携</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>屏幕素质</h4>
+                        <p>120Hz 高刷 OLED</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>材质工艺</h4>
+                        <p>AG磨砂质感背板</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section id="specs" class="specs-section">
+        <div class="section-header">
+            <h2>详细参数</h2>
+            <p>硬核配置，性能全开</p>
+        </div>
+        <div class="specs-table-container">
+            <table class="specs-table">
+                <tbody>
+                    <tr>
+                        <th>处理器</th>
+                        <td>天玑 8200 (MediaTek Dimensity 8200)</td>
+                    </tr>
+                    <tr>
+                        <th>运行内存</th>
+                        <td>8GB / 12GB RAM</td>
+                    </tr>
+                    <tr>
+                        <th>存储空间</th>
+                        <td>256GB / 512GB ROM</td>
+                    </tr>
+                    <tr>
+                        <th>后置摄像头</th>
+                        <td>5000万像素主摄 (IMX766V) + 800万像素超广角</td>
+                    </tr>
+                    <tr>
+                        <th>前置摄像头</th>
+                        <td>4400万像素人像镜头</td>
+                    </tr>
+                    <tr>
+                        <th>电池容量</th>
+                        <td>4640mAh</td>
+                    </tr>
+                    <tr>
+                        <th>充电速度</th>
+                        <td>80W 双电芯闪充</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <a href="#" class="logo">vivo<span>Official</span></a>
+            <p>致力于为用户提供专业、时尚、易用的科技产品。vivos16，记录生活中的美好瞬间。</p>
+        </div>
+        <div class="footer-col">
+            <h4>产品系列</h4>
+            <ul>
+                <li><a href="#">X系列</a></li>
+                <li><a href="#">S系列</a></li>
+                <li><a href="#">Y系列</a></li>
+                <li><a href="#">iQOO</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>支持服务</h4>
+            <ul>
+                <li><a href="#">售后服务</a></li>
+                <li><a href="#">以旧换新</a></li>
+                <li><a href="#">权限中心</a></li>
+                <li><a href="#">隐私政策</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>联系我们</h4>
+            <ul>
+                <li><a href="#">在线客服</a></li>
+                <li><a href="#">意见反馈</a></li>
+                <li><a href="#">经销商查询</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 vivo Communication Technology Co., Ltd. 保留所有权利。本页面为设计展示，非官方网站。</p>
+    </div>
+</footer>
+
+</body>
+</html>
