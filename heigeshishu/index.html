@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="嗨格式数据恢复大师官方下载 - 安全专业的数据恢复软件，支持恢复硬盘、U盘、SD卡、微信/QQ聊天记录等丢失数据，提供免费扫描与一键恢复功能。">
+    <meta name="keywords" content="嗨格式数据恢复大师官方下载,数据恢复软件,硬盘数据恢复,U盘恢复,微信数据恢复">
+    <title>嗨格式数据恢复大师官方下载 - 安全高效的数据恢复软件工具</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0066ff;
+            --primary-hover: #0052cc;
+            --secondary-color: #f0f7ff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --bg-body: #ffffff;
+            --bg-section: #f8f9fa;
+            --border-color: #e5e5e5;
+            --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 24px rgba(0, 102, 255, 0.15);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-download-sm {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .btn-download-sm:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 40px;
+            border-radius: var(--radius-lg);
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+            background-color: var(--primary-hover);
+        }
+
+        .btn-large svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 14px 30px;
+            border-radius: var(--radius-lg);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .feature-item svg {
+            color: var(--primary-color);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        /* Scenario Grid */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .scenario-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scenario-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .scenario-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+        }
+
+        .scenario-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .scenario-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--secondary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .scenario-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-color);
+        }
+
+        .scenario-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .scenario-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            background-color: var(--bg-section);
+            padding: 80px 20px;
+            border-radius: var(--radius-lg);
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 0;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .steps-container::before {
+                display: block;
+            }
+        }
+
+        .step-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 0 8px var(--bg-section);
+        }
+
+        .step-item h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .step-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            padding: 0 10px;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            margin-bottom: 80px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 16px;
+            width: 30%;
+        }
+
+        .comparison-table td {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .cross-icon {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 16px;
+            }
+            
+            nav {
+                display: none; /* Simplified mobile view */
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .steps-container {
+                flex-direction: column;
+            }
+
+            .steps-container::before {
+                display: none;
+            }
+
+            .comparison-table th, .comparison-table td {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .comparison-table th {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-color)">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>嗨格式数据恢复大师</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">软件介绍</a></li>
+                    <li><a href="#">恢复场景</a></li>
+                    <li><a href="#">版本更新</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-download-sm">立即下载</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>嗨格式数据恢复大师<br><span class="highlight">官方下载</span> - 数据恢复的可靠选择</h1>
+            <p>专为 Windows/Mac 设计的专业数据恢复软件，支持硬盘、U盘、SD卡、微信/QQ聊天记录等多种场景，安全扫描，一键恢复丢失文件。</p>
+            
+            <div class="download-actions">
+                <a href="#" class="btn-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    免费下载试用版
+                </a>
+                <a href="#" class="btn-outline">查看使用教程</a>
+            </div>
+
+            <div class="hero-features">
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    100% 安全扫描
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    免费预览文件
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    简单易用操作
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Recovery Scenarios -->
+        <section class="section-title">
+            <h2>支持多种恢复场景</h2>
+            <p>无论您遇到哪种数据丢失情况，都能找到对应的解决方案</p>
+        </section>
+
+        <div class="scenario-grid">
+            <article class="scenario-card">
+                <div class="scenario-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <h3>硬盘数据恢复</h3>
+                <p>解决分区丢失、格式化、文件系统错误等导致的硬盘数据丢失问题，支持NTFS、FAT32等多种文件系统。</p>
+            </article>
+
+            <article class="scenario-card">
+                <div class="scenario-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                </div>
+                <h3>U盘/SD卡恢复</h3>
+                <p>U盘无法读取、SD卡照片丢失、移动硬盘文件损坏等情况，快速找回珍贵照片和文档资料。</p>
+            </article>
+
+            <article class="scenario-card">
+                <div class="scenario-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <h3>微信/QQ聊天记录</h3>
+                <p>误删微信聊天记录、QQ丢失消息，支持恢复图片、视频、语音及聊天文本内容。</p>
+            </article>
+
+            <article class="scenario-card">
+                <div class="scenario-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <h3>文档/照片恢复</h3>
+                <p>Word、Excel、PPT、PDF、JPG、PNG等办公文档和图片文件被清空回收站后的恢复。</p>
+            </article>
+        </div>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="section-title">
+                <h2>简单三步恢复数据</h2>
+                <p>无需专业技术，任何人都能轻松使用</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>选择恢复模式</h3>
+                    <p>根据您的丢失情况，从恢复模式中选择最合适的选项（如“删除文件恢复”或“格式化恢复”）。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>扫描丢失文件</h3>
+                    <p>选择目标磁盘进行扫描，软件会快速定位丢失的文件分区，支持深度扫描以找回更多数据。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>预览并恢复</h3>
+                    <p>扫描完成后，勾选需要恢复的文件进行预览，确认无误后点击恢复按钮即可保存到安全位置。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-section">
+            <div class="section-title">
+                <h2>软件功能对比</h2>
+                <p>了解嗨格式数据恢复大师的核心优势</p>
+            </div>
+            
+            <table class="comparison-table">
+                <tbody>
+                    <tr>
+                        <th>功能特性</th>
+                        <td>嗨格式数据恢复大师</td>
+                        <td>手动CMD命令</td>
+                    </tr>
+                    <tr>
+                        <td>扫描速度</td>
+                        <td><span class="check-icon">✔</span> 快速且智能</td>
+                        <td><span class="cross-icon">✖</span> 非常慢</td>
+                    </tr>
+                    <tr>
+                        <td>操作难度</td>
+                        <td><span class="check-icon">✔</span> 一键式，适合新手</td>
+                        <td><span class="cross-icon">✖</span> 需要技术基础</td>
+                    </tr>
+                    <tr>
+                        <td>恢复成功率</td>
+                        <td><span class="check-icon">✔</span> 高，支持预览</td>
+                        <td><span class="cross-icon">✖</span> 低，且无法预览</td>
+                    </tr>
+                    <tr>
+                        <td>数据安全性</td>
+                        <td><span class="check-icon">✔</span> 扫描不修改原数据</td>
+                        <td><span class="cross-icon">✖</span> 操作不当易覆盖</td>
+                    </tr>
+                    <tr>
+                        <td>支持文件类型</td>
+                        <td><span class="check-icon">✔</span> 全格式覆盖（文档/音视频/图片/压缩包等）</td>
+                        <td><span class="cross-icon">✖</span> 仅限特定格式</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">下载后扫描不到文件怎么办？</div>
+                <div class="faq-answer">
+                    请确保您选择了正确的丢失文件所在的磁盘分区进行扫描。如果是误删文件，建议先停止对该磁盘进行写入操作，以免数据被覆盖。
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">免费版和付费版有什么区别？</div>
+                <div class="faq-answer">
+                    免费版支持免费扫描，可以预览扫描到的文件，但恢复时需要输入注册码激活。付费版则支持直接恢复文件，无数量限制。
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">恢复的文件在哪个位置？</div>
+                <div class="faq-answer">
+                    建议将恢复的文件保存到另一个安全的磁盘分区中，不要直接保存回原盘，以防止数据再次被覆盖。
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于软件</h4>
+                <ul>
+                    <li><a href="#">软件介绍</a></li>
+                    <li><a href="#">更新日志</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>恢复场景</h4>
+                <ul>
+                    <li><a href="#">硬盘数据恢复</a></li>
+                    <li><a href="#">U盘恢复</a></li>
+                    <li><a href="#">微信记录恢复</a></li>
+                    <li><a href="#">格式化恢复</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>技术支持</h4>
+                <ul>
+                    <li><a href="#">使用教程</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">提交工单</a></li>
+                    <li><a href="#">恢复咨询</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 嗨格式数据恢复大师 版权所有. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 折叠交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项状态
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+              </html>
