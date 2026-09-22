@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="一起草 - 提供高效、安全的在线文档协作与草稿撰写工具，支持实时多人编辑、版本管理及云端存储。">
+    <meta name="keywords" content="一起草,在线协作,文档编辑,草稿工具,团队协作">
+    <title>一起草 - 高效在线文档协作与草稿撰写平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-main);
+            border-color: var(--border-color);
+        }
+
+        .btn-ghost:hover {
+            background: #f1f5f9;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--surface-color);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Workspace Preview */
+        .workspace-preview {
+            background: var(--surface-color);
+            padding: 80px 20px;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .preview-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f1f5f9;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-header {
+            background: white;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+        }
+
+        .dot.red { background: #ef4444; }
+        .dot.yellow { background: #f59e0b; }
+        .dot.green { background: #10b981; }
+
+        .preview-body {
+            display: flex;
+            min-height: 400px;
+        }
+
+        .preview-sidebar {
+            width: 200px;
+            background: white;
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .preview-sidebar { display: block; }
+        }
+
+        .sidebar-item {
+            height: 12px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .preview-content {
+            flex: 1;
+            padding: 40px;
+            background: white;
+        }
+
+        .mock-title {
+            height: 32px;
+            width: 60%;
+            background: #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .mock-text {
+            height: 16px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .mock-text.w-80 { width: 80%; }
+        .mock-text.w-40 { width: 40%; }
+        .mock-text.w-60 { width: 60%; }
+        .mock-text.w-full { width: 100%; }
+
+        .mock-image {
+            width: 100%;
+            height: 200px;
+            background: #e2e8f0;
+            border-radius: var(--radius-md);
+            margin: 24px 0;
+        }
+
+        .mock-editor {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #94a3b8;
+        }
+
+        .mock-input {
+            flex: 1;
+            height: 36px;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+        }
+
+        /* Use Cases */
+        .use-cases {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .case-item {
+            display: flex;
+            align-items: center;
+            background: var(--surface-color);
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .case-item:last-child {
+            border-bottom: none;
+        }
+
+        .case-item:hover {
+            background: #f8fafc;
+        }
+
+        .case-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #e2e8f0;
+            margin-right: 32px;
+            min-width: 60px;
+        }
+
+        .case-content {
+            flex: 1;
+        }
+
+        .case-content h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .case-content p {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .case-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .case-number {
+                margin-right: 0;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary-color);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-white:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface-color);
+            padding: 60px 20px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav ul {
+                display: none; /* Simplify for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+                一起草
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">功能特性</a></li>
+                    <li><a href="#workspace">工作台</a></li>
+                    <li><a href="#pricing">价格方案</a></li>
+                    <li><a href="#help">帮助中心</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-ghost">登录</a>
+                <a href="#" class="btn btn-primary">免费注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>随时随地，<span>一起草</span> 灵感与成果</h1>
+                <p>专为团队协作打造的在线草稿与文档工具。实时同步、版本回溯、安全加密，让每一次创作都井井有条。</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="btn btn-primary">开始免费使用</a>
+                    <a href="#" class="btn btn-ghost">观看演示视频</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>10万+</h3>
+                        <p>活跃团队</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500万+</h3>
+                        <p>创建文档</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>在线稳定性</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="section-header">
+                <h2>为什么选择一起草</h2>
+                <p>不仅仅是编辑器，更是您团队的第二大脑</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>多人实时协作</h3>
+                    <p>邀请团队成员在线编辑，光标实时跟随，评论即时互动，告别邮件往返，让沟通像面对面一样高效。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>智能版本管理</h3>
+                    <p>每一次修改都是一次历史记录。支持一键回滚、对比差异，轻松找回丢失的灵感，再也不怕误操作。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <h3>企业级安全加密</h3>
+                    <p>采用端到端加密技术，数据存储于国内合规服务器。提供细粒度的权限管理，确保企业机密万无一失。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="workspace-preview" id="workspace">
+            <div class="preview-container">
+                <div class="preview-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="preview-body">
+                    <div class="preview-sidebar">
+                        <div class="sidebar-item"></div>
+                        <div class="sidebar-item"></div>
+                        <div class="sidebar-item"></div>
+                        <div class="sidebar-item" style="width: 60%;"></div>
+                    </div>
+                    <div class="preview-content">
+                        <div class="mock-title"></div>
+                        <div class="mock-text w-full"></div>
+                        <div class="mock-text w-80"></div>
+                        <div class="mock-text w-60"></div>
+                        <div class="mock-text w-full"></div>
+                        <div class="mock-text w-40"></div>
+                        <div class="mock-image"></div>
+                        <div class="mock-text w-full"></div>
+                        <div class="mock-text w-full"></div>
+                        
+                        <div class="mock-editor">
+                            <div class="avatar"></div>
+                            <div class="mock-input"></div>
+                            <div class="avatar" style="background: #3b82f6;"></div>
+                            <div class="mock-input" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="use-cases">
+            <div class="section-header">
+                <h2>适用场景广泛</h2>
+                <p>无论是创意构思还是项目执行，一起草都能满足您的需求</p>
+            </div>
+            <div class="case-list">
+                <div class="case-item">
+                    <div class="case-number">01</div>
+                    <div class="case-content">
+                        <h3>头脑风暴会议</h3>
+                        <p>在会议室大屏上实时展示文档，全员同步输入想法，利用评论功能进行讨论，会议效率提升 300%。</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <div class="case-number">02</div>
+                    <div class="case-content">
+                        <h3>项目需求文档</h3>
+                        <p>产品经理与技术团队共享同一个文档，实时更新需求变更，减少沟通误解，确保项目按期交付。</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <div class="case-number">03</div>
+                    <div class="case-content">
+                        <h3>营销策划方案</h3>
+                        <p>多部门协作撰写年度营销计划，通过插入表格、图片和甘特图，将复杂的数据可视化呈现。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>准备好提升协作效率了吗？</h2>
+            <p>加入数百万用户的行列，使用一起草开启高效工作新体验。无需信用卡，即刻开始。</p>
+            <a href="#" class="btn btn-white">立即免费注册</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 16px;">一起草</div>
+                <p style="color: var(--text-secondary); font-size: 14px;">致力于为全球团队提供最流畅的在线文档协作体验。</p>
+            </div>
+            <div class="footer-col">
+                <h4>产品</h4>
+                <ul>
+                    <li><a href="#">功能介绍</a></li>
+                    <li><a href="#">更新日志</a></li>
+                    <li><a href="#">集成插件</a></li>
+                    <li><a href="#">API 文档</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源</h4>
+                <ul>
+                    <li><a href="#">使用指南</a></li>
+                    <li><a href="#">最佳实践</a></li>
+                    <li><a href="#">模板中心</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持</h4>
+                <ul>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">安全说明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 一起草科技保留所有权利。</p>
+            <div style="display: flex; gap: 20px;">
+                <a href="#">微博</a>
+                <a href="#">微信</a>
+                <a href="#">知乎</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
