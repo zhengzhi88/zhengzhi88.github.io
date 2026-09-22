@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韩小雅-时尚生活美学与个人成长指南</title>
+    <meta name="description" content="韩小雅专注于分享现代女性时尚穿搭、家居生活美学、职场成长心得及高品质好物推荐。提供实用的生活技巧、避坑指南与美学灵感，帮助您构建自信优雅的生活方式。">
+    <meta name="keywords" content="韩小雅, 时尚穿搭, 生活美学, 职场成长, 好物推荐, 个人博客">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --secondary-color: #6f42c1;
+            --accent-color: #ffc107;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #c02c6e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(214, 51, 132, 0.4);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+        }
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(214, 51, 132, 0.2);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .category-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Latest Articles */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .article-image {
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Lifestyle Features */
+        .features-section {
+            background-color: var(--white);
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background-color: var(--bg-light);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .feature-icon {
+            background-color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .feature-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                position: relative;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">韩小雅<span>.</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#style">穿搭</a></li>
+                    <li><a href="#life">生活</a></li>
+                    <li><a href="#growth">成长</a></li>
+                    <li><a href="#about">关于我</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>发现更美的自己<br>从每一个生活细节开始</h1>
+                <p>韩小雅致力于分享现代女性的时尚穿搭灵感、实用生活技巧与自我提升指南。在这里，我们探讨如何用优雅的姿态面对生活，用智慧的眼光选择好物。</p>
+                <a href="#style" class="cta-button">探索美学世界</a>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="container">
+            <div class="category-grid">
+                <div class="category-card" onclick="window.location.href='#style'">
+                    <span class="category-icon">👗</span>
+                    <h3>时尚穿搭</h3>
+                    <p>通勤、约会、度假穿搭灵感与色彩搭配技巧</p>
+                </div>
+                <div class="category-card" onclick="window.location.href='#life'">
+                    <span class="category-icon">🏠</span>
+                    <h3>居家美学</h3>
+                    <p>极简家居布置、收纳整理与生活好物推荐</p>
+                </div>
+                <div class="category-card" onclick="window.location.href='#growth'">
+                    <span class="category-icon">✨</span>
+                    <h3>自我成长</h3>
+                    <p>职场进阶、情绪管理、阅读与个人品牌建设</p>
+                </div>
+                <div class="category-card" onclick="window.location.href='#beauty'">
+                    <span class="category-icon">💄</span>
+                    <h3>美妆护肤</h3>
+                    <p>敏感肌护理、平价彩妆测评与妆容教程</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Articles Section -->
+        <section id="style" class="container">
+            <div class="section-header">
+                <h2>精选内容</h2>
+                <p>最新发布的生活美学与实用指南</p>
+            </div>
+            <div class="article-grid">
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://picsum.photos/seed/fashion1/600/400" alt="夏季穿搭">
+                        <span class="article-badge">穿搭</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>2023年10月24日</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3 class="article-title">30岁女性的夏季极简衣橱指南：少即是多</h3>
+                        <p class="article-excerpt">如何在炎热的夏天保持清爽与优雅？本文为你推荐5件百搭单品，轻松应对各种场合。</p>
+                        <a href="#" class="read-more">阅读全文 →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://picsum.photos/seed/home2/600/400" alt="家居生活">
+                        <span class="article-badge">生活</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>2023年10月20日</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3 class="article-title">打造治愈系书桌：提升工作效率的10个小物</h3>
+                        <p class="article-excerpt">一个好的工作环境能极大地影响心情。看看韩小雅是如何布置她的私人办公角落的。</p>
+                        <a href="#" class="read-more">阅读全文 →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://picsum.photos/seed/work3/600/400" alt="职场">
+                        <span class="article-badge">成长</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>2023年10月15日</span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3 class="article-title">拒绝内耗：职场新人如何建立强大的心理边界</h3>
+                        <p class="article-excerpt">学会说“不”是成熟的第一步。分享几个实用的心理建设技巧，让你在职场中游刃有余。</p>
+                        <a href="#" class="read-more">阅读全文 →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Value Proposition Section -->
+        <section id="life" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择韩小雅？</h2>
+                    <p>不仅是分享，更是陪伴你成长的伙伴</p>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-text">
+                            <h4>实用主义导向</h4>
+                            <p>拒绝空洞的理论，只分享经过亲身验证、真正落地的实用技巧和好物。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <div class="feature-text">
+                            <h4>真实客观测评</h4>
+                            <p>所有好物推荐均基于长期使用体验，不恰饭、不吹捧，为你提供真实参考。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🌱</div>
+                        <div class="feature-text">
+                            <h4>持续自我迭代</h4>
+                            <p>韩小雅坚持每月复盘与学习，与你一同见证从普通到优秀的蜕变过程。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter / Contact -->
+        <section class="container" style="text-align: center; background: linear-gradient(to right, #fdf2f8, #f3e8ff); padding: 50px; border-radius: 20px;">
+            <h2 style="margin-bottom: 15px;">订阅更新</h2>
+            <p style="color: var(--text-gray); margin-bottom: 30px;">每周一发送，分享最新穿搭灵感与生活干货，绝不发送垃圾邮件。</p>
+            <form onsubmit="event.preventDefault(); alert('感谢您的订阅！我们会尽快与您联系。');" style="display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+                <input type="email" placeholder="输入您的邮箱地址" required style="flex: 1; padding: 12px 20px; border: 1px solid #ddd; border-radius: 30px; outline: none; min-width: 200px;">
+                <button type="submit" class="cta-button" style="padding: 12px 30px;">订阅</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>韩小雅</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">一个热爱生活、追求美好的普通女孩。在这里记录成长，分享快乐，与你一起遇见更好的自己。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#style">时尚穿搭</a></li>
+                        <li><a href="#life">居家生活</a></li>
+                        <li><a href="#growth">自我成长</a></li>
+                        <li><a href="#beauty">美妆护肤</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">合作投稿</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 韩小雅 版权所有. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link (for better UX on mobile)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-list').classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
