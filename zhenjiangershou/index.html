@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>浈江二手房-优质房源与购房指南平台</title>
+    <meta name="description" content="浈江二手房专业交易平台，提供浈江区最新二手房房源信息、房价走势、学区划分及购房指南。精选浈江二手住宅、商铺、公寓等优质房产，助您轻松置业。">
+    <meta name="keywords" content="浈江二手房,浈江区房产,韶关二手房,浈江房价,二手房出售">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-main: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-body: #f3f4f6;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 60px 0;
+            color: white;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 10px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            gap: 10px;
+            box-shadow: var(--shadow-md);
+            max-width: 600px;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 15px;
+            font-size: 16px;
+            outline: none;
+            border-radius: var(--radius-md);
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: var(--radius-md);
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #d97706;
+        }
+
+        .hero-stats {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Filter & Tabs */
+        .filter-bar {
+            background: var(--bg-white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filter-inner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .filter-group select {
+            padding: 6px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: white;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .filter-group select:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* House List */
+        .house-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .house-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .house-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .house-img {
+            width: 100%;
+            height: 220px;
+            background-color: #e5e7eb;
+            position: relative;
+        }
+
+        .house-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .house-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .house-price {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .house-info {
+            padding: 20px;
+        }
+
+        .house-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .house-address {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .house-details {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Features Section */
+        .features-section {
+            background-color: var(--bg-white);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+        }
+
+        .feature-item h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            padding: 60px 0;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .guide-card {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .guide-card h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .guide-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .guide-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--bg-white);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>浈江房产</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">二手房</a>
+                <a href="#">新房</a>
+                <a href="#">租房</a>
+                <a href="#">商铺</a>
+                <a href="#">房价走势</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">发布房源</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>浈江二手房优选平台</h1>
+                    <p>专注浈江区房产交易，海量真实房源，专业置业顾问，让您的购房之路更省心、更透明。</p>
+                    <div class="search-box">
+                        <input type="text" placeholder="请输入小区名称、区域或地址...">
+                        <button>搜索</button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <h3>1,204</h3>
+                        <p>在售房源</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>8,560</h3>
+                        <p>本月带看</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>3.2%</h3>
+                        <p>月环比涨幅</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filter-bar">
+            <div class="container filter-inner">
+                <div class="filter-group">
+                    <label>区域：</label>
+                    <select>
+                        <option value="">浈江区全境</option>
+                        <option value="1">车站街道</option>
+                        <option value="2">风度街道</option>
+                        <option value="3">犁市镇</option>
+                        <option value="4">乐园镇</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>户型：</label>
+                    <select>
+                        <option value="">不限</option>
+                        <option value="1">一室</option>
+                        <option value="2">两室</option>
+                        <option value="3">三室</option>
+                        <option value="4">四室及以上</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>价格：</label>
+                    <select>
+                        <option value="">不限</option>
+                        <option value="1">100万以下</option>
+                        <option value="2">100-200万</option>
+                        <option value="3">200-300万</option>
+                        <option value="4">300万以上</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>排序：</label>
+                    <select>
+                        <option value="new">最新上架</option>
+                        <option value="price-asc">价格从低到高</option>
+                        <option value="price-desc">价格从高到低</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-title">
+                <h2>热门推荐</h2>
+                <a href="#" class="view-all">查看全部房源 &rarr;</a>
+            </div>
+            <div class="house-grid">
+                <!-- Card 1 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house1/400/300" alt="浈江二手房房源">
+                        <span class="house-tag">急售</span>
+                        <span class="house-price">128万</span>
+                    </div>
+                    <div class="house-info">
+                        <h3 class="house-title">碧桂园·凤凰城 3室2厅 南北通透 精装修</h3>
+                        <div class="house-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            浈江区风度街道
+                        </div>
+                        <div class="house-details">
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> 89㎡</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> 3室2厅</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> 2018年建</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house2/400/300" alt="浈江二手房房源">
+                        <span class="house-tag">满五唯一</span>
+                        <span class="house-price">185万</span>
+                    </div>
+                    <div class="house-info">
+                        <h3 class="house-title">金桂园 2室1厅 中楼层 精装拎包入住</h3>
+                        <div class="house-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            浈江区车站街道
+                        </div>
+                        <div class="house-details">
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> 72㎡</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> 2室1厅</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> 2015年建</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house3/400/300" alt="浈江二手房房源">
+                        <span class="house-price">95万</span>
+                    </div>
+                    <div class="house-info">
+                        <h3 class="house-title">锦绣豪庭 1室1厅 小户型 周边配套成熟</h3>
+                        <div class="house-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            浈江区乐园镇
+                        </div>
+                        <div class="house-details">
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> 45㎡</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> 1室1厅</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> 2010年建</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house4/400/300" alt="浈江二手房房源">
+                        <span class="house-tag">学区房</span>
+                        <span class="house-price">260万</span>
+                    </div>
+                    <div class="house-info">
+                        <h3 class="house-title">韶关市实验小学旁 4室2厅 大平层 采光极佳</h3>
+                        <div class="house-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            浈江区风度街道
+                        </div>
+                        <div class="house-details">
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> 128㎡</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> 4室2厅</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> 2020年建</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house5/400/300" alt="浈江二手房房源">
+                        <span class="house-price">150万</span>
+                    </div>
+                    <div class="house-info">
+                        <h3 class="house-title">碧桂园·凤凰城 2室2厅 现房即买即住</h3>
+                        <div class="house-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            浈江区风度街道
+                        </div>
+                        <div class="house-details">
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> 89㎡</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> 2室2厅</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> 2018年建</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house6/400/300" alt="浈江二手房房源">
+                        <span class="house-tag">急售</span>
+                        <span class="house-price">210万</span>
+                    </div>
+                    <div class="house-info">
+                        <h3 class="house-title">金桂园 3室1厅 精装修 车位赠送</h3>
+                        <div class="house-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            浈江区车站街道
+                        </div>
+                        <div class="house-details">
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> 98㎡</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> 3室1厅</span>
+                            <span class="detail-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> 2016年建</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>为什么选择我们</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>房源真实可靠</h3>
+                        <p>严格审核业主身份，确保每一套房源真实存在，拒绝虚假信息。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3>交易流程透明</h3>
+                        <p>从看房到过户，全程专业经纪人跟进，交易环节清晰可查。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <h3>价格公道合理</h3>
+                        <p>大数据分析浈江房价走势，为您提供最具性价比的购房建议。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </div>
+                        <h3>贴心售后服务</h3>
+                        <p>购房无忧，提供后续物业交割、维修咨询等全方位服务支持。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container guide-section">
+            <div class="section-title">
+                <h2>浈江购房指南</h2>
+            </div>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <h3>浈江区购房注意事项</h3>
+                    <ul class="guide-list">
+                        <li>确认房屋产权是否清晰，是否存在抵押或查封情况。</li>
+                        <li>核实学区划分，特别是关注教育政策的最新变动。</li>
+                        <li>实地考察周边交通、商业配套及未来规划。</li>
+                        <li>仔细检查房屋结构、水电设施及装修状况。</li>
+                        <li>了解当地的购房限购政策及税费标准。</li>
+                    </ul>
+                </div>
+                <div class="guide-card">
+                    <h3>浈江二手房交易流程</h3>
+                    <ul class="guide-list">
+                        <li><strong>看房签约：</strong>实地看房，确认房屋细节，签订买卖合同。</li>
+                        <li><strong>资质审核：</strong>买卖双方提交身份证明，中介进行资质核验。</li>
+                        <li><strong>资金监管：</strong>将购房款存入监管账户，确保资金安全。</li>
+                        <li><strong>缴纳税费：</strong>按照规定缴纳契税、个税及增值税等。</li>
+                        <li><strong>过户登记：</strong>前往不动产登记中心办理产权过户手续。</li>
+                        <li><strong>交房入住：</strong>结清物业费，钥匙交接，完成交易。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">浈江二手房首付一般是多少？</div>
+                    <div class="faq-answer">首付比例根据当地政策、房屋性质及买家征信情况而定。首套房通常在20%-30%左右，具体需咨询专业置业顾问。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何辨别浈江二手房的真伪？</div>
+                    <div class="faq-answer">建议通过正规中介机构看房，要求查看房产证原件及业主身份证，确保房源真实有效。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">浈江哪个区域的房价比较高？</div>
+                    <div class="faq-answer">目前浈江区风度街道及车站街道的老牌小区和靠近核心商圈的房源价格相对较高，且保值性较好。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">二手房交易需要缴纳哪些税费？</div>
+                    <div class="faq-answer">主要涉及契税、增值税及附加、个人所得税（满五唯一可免征）、中介费等，具体金额需根据房屋面积和持有年限计算。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>浈江房产</h2>
+                    <p>致力于为浈江区居民提供最专业、最便捷的二手房交易服务。我们用心服务每一个家庭，助力实现安居梦想。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">二手房</a></li>
+                        <li><a href="#">租房</a></li>
+                        <li><a href="#">新房</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>购房服务</h4>
+                    <ul>
+                        <li><a href="#">学区查询</a></li>
+                        <li><a href="#">税费计算</a></li>
+                        <li><a href="#">贷款计算</a></li>
+                        <li><a href="#">购房流程</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>电话：0751-12345678</li>
+                        <li>邮箱：service@zhenjiang.com</li>
+                        <li>地址：广东省韶关市浈江区XX路XX号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 浈江房产服务平台 版权所有 | 仅供演示使用</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+  </html>
